@@ -1,0 +1,28 @@
+{
+  "name": "react-typescript-seed-20019",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Oscar Yepes",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config ./config/webpack.prod.js",
+    "dev": "webpack-dev-server --config ./config/webpack.dev.js"
+  },
+  "dependencies": {
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "clean-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.4000",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1",
+    "workbox-webpack-plugin": "^4.1.1"
+  }
+}
