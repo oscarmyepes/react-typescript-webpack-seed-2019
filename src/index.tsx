@@ -1,18 +1,20 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import App from "./components/App";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import IndexPage from "./pages/Index";
 import { store } from "./store/index";
 
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Route path="/" component={IndexPage} />
+    </Router>
   </Provider>,
   rootElement
 );
-
 
 if ("serviceWorker" in navigator && PRODUCTION) {
   window.addEventListener("load", () => {
