@@ -2,7 +2,8 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/index",
@@ -30,6 +31,7 @@ module.exports = {
     }),
     new CopyPlugin([
       { from: path.resolve("./src/static"), to: path.resolve("./dist/static") }
-    ])
+    ]),
+    new Dotenv()
   ]
 };

@@ -1,4 +1,5 @@
 const webpackCommon = require("./webpack.common");
+const webpack = require("webpack");
 
 module.exports = {
   ...webpackCommon,
@@ -6,5 +7,11 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist"
-  }
+  },
+  plugins: [
+    ...webpackCommon.plugins,
+    new webpack.DefinePlugin({
+      PRODUCTION: JSON.stringify(false)
+    })
+  ]
 };

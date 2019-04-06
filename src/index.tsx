@@ -1,13 +1,20 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import App from "./components/App";
+import { store } from "./store/index";
 
 const rootElement = document.getElementById("root");
 
-const App = () => <h1>Seed 2</h1>;
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
 
-ReactDOM.render(<App />, rootElement);
 
-if ("serviceWorker" in navigator) {
+if ("serviceWorker" in navigator && PRODUCTION) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("/service-worker.js")

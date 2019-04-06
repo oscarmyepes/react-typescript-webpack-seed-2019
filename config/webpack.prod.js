@@ -1,5 +1,6 @@
 const webpackCommon = require("./webpack.common");
 const WorkboxPlugin = require("workbox-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   ...webpackCommon,
@@ -11,9 +12,12 @@ module.exports = {
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
       skipWaiting: true
+    }),
+    new webpack.DefinePlugin({
+      PRODUCTION: JSON.stringify(true)
     })
   ],
   optimization: {
-    minimize: false
+    minimize: true
   }
 };
