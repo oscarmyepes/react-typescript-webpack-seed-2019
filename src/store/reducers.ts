@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
+import { testReducer } from "./modules/test/reducer";
 
 export default combineReducers({
-  main: (state = {}, action: any) => state
+  test: testReducer
 });
