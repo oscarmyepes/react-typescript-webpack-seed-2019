@@ -7,7 +7,7 @@ interface IApp {
   dispatch: Dispatch;
 }
 
-let App = ({ dispatch }: IApp) => {
+export let App = ({ dispatch }: IApp) => {
   React.useEffect(() => {
     dispatch(logTestSaga("from App"));
   });
