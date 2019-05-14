@@ -18,6 +18,7 @@ module.exports = {
     })
   ],
   optimization: {
+    ...webpackCommon.optimization,
     minimize: true
   }
 };

@@ -9,7 +9,8 @@ module.exports = {
   entry: "./src/index",
   output: {
     path: path.resolve("./dist"),
-    filename: "bundle.[hash].js"
+    filename: "bundle.[hash].js",
+    chunkFilename: "[name].bundle.js"
   },
   module: {
     rules: [
@@ -33,5 +34,6 @@ module.exports = {
       { from: path.resolve("./src/static"), to: path.resolve("./dist/static") }
     ]),
     new Dotenv()
-  ]
+  ],
+  optimization: {}
 };
