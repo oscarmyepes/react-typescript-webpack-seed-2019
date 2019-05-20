@@ -21,17 +21,30 @@ interface IApp {
   dispatch: Dispatch;
 }
 
+const Test = function({ onClick }: any) {
+  return <button onClick={onClick}>test</button>;
+};
+
 export let App = ({ dispatch }: IApp) => {
+  const [text, setText] = React.useState("Default");
+
   React.useEffect(() => {
     dispatch(logTestSaga("from App"));
   });
+
+  const onClick = () => {
+    setText("Text changed");
+  };
+
   return (
-    <div>
-      In app
+    <>
+      <div>In app</div>
       <React.Suspense fallback={<div>Loading...</div>}>
         <Lazy />
       </React.Suspense>
-    </div>
+      <Test onClick={onClick} />
+      <p>{text}</p>
+    </>
   );
 };
 export default connect()(App);
