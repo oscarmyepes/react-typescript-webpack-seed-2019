@@ -9,7 +9,7 @@ describe("test", () => {
   it("Should test first render", () => {
     // Assemble
     const dispatch = jest.fn(
-      (): any => {
+      (): null => {
         return null;
       }
     );
