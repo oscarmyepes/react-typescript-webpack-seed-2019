@@ -1,15 +1,16 @@
+import { createBrowserHistory } from "history";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Router } from "react-router";
 import IndexPage from "./pages/Index";
 import { store } from "./store/index";
 
 const rootElement = document.getElementById("root");
-
+const history = createBrowserHistory()
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <Route path="/" component={IndexPage} />
     </Router>
   </Provider>,

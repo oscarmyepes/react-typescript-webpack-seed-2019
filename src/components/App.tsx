@@ -7,11 +7,12 @@ import { logTestSaga } from "../store/modules/test/actions";
 //   import(/* webpackChunkName: "LazyComp" */ "./LazyComp")
 // );
 
+type ModuleType = typeof import(/* webpackChunkName: "LazyComp" */ "./LazyComp");
+
 const Lazy = React.lazy(() => {
-  return new Promise(resolve => {
+  return new Promise((resolve: (comp: Promise<ModuleType>) => void) => {
     setTimeout(
-      () =>
-        resolve(import(/* webpackChunkName: "LazyComp" */ "./LazyComp") as any),
+      () => resolve(import(/* webpackChunkName: "LazyComp" */ "./LazyComp")),
       3000
     );
   });
